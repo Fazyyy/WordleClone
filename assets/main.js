@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   createSquares();
   getNewWord();
 
+  //Variable Initialisations
   let guessedWords = [[]];
   let availableSpace = 1;
-
   let word;
   let guessedWordCount = 0;
-
   const keys = document.querySelectorAll(".k-row button");
 
+  //Get new word from RapidAPI WordsAPI
   function getNewWord() {
     fetch(
       `https://wordsapiv1.p.rapidapi.com/words/?random=true&lettersMin=5&lettersMax=5`,
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  //Track current attempt
   function getCurrentWordArr() {
     const numberOfGuessedWords = guessedWords.length;
     return guessedWords[numberOfGuessedWords - 1]
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Assign correct tile colour dependant on guess result
   function getTileColor(letter, index) {
     const isCorrectLetter = word.includes(letter);
 
@@ -70,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleSubmitWord() {
     const currentWordArr = getCurrentWordArr()
     if (currentWordArr.length !== 5) {
-      window.alert("Word requires 5 letters!");
+      return window.alert("Word requires 5 letters!");
     }
 
     const currentWord = currentWordArr.join("");
@@ -118,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
+  //Create the game board
   function createSquares() {
     const gameBoard = document.getElementById("board");
 
