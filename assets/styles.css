@@ -73,6 +73,13 @@ p {
   border-radius: 2px;
   min-width: 50px;
   min-height: 50px;
+  color: #fff;
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pri);
 }
 
 #keyboard {
@@ -108,3 +115,33 @@ p {
   flex-grow: 1.5;
 }
 
+.flip-horizontal-bottom {
+	-webkit-animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) alternate both;
+  animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) alternate both;
+}
+
+/**
+ * ----------------------------------------
+ * animation flip-horizontal-bottom
+ * ----------------------------------------
+ */
+ @-webkit-keyframes flip-horizontal-bottom {
+  0% {
+    -webkit-transform: rotateX(-180);
+            transform: rotateX(-180);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+@keyframes flip-horizontal-bottom {
+  0% {
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
