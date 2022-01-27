@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!res.ok) {
         throw Error()
       }
+
       const firstLetterId = guessedWordCount * 5 + 1;
       const interval = 200;
       currentWordArr.forEach((letter, index) => {
@@ -127,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let index = 0; index < 30; index++) {
       let square = document.createElement("div");
       square.classList.add("square");
-      square.classList.add("animate__animated");
       square.setAttribute("id", index + 1);
       gameBoard.appendChild(square);
     }
